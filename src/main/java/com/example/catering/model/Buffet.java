@@ -27,8 +27,8 @@ public class Buffet {
     private Chef chef;
 
     @ManyToMany
-    @JoinTable(name = "buffet_piattoes",
-            joinColumns = @JoinColumn(name = "buffet_id", referencedColumnName = "piattoes_id"))
+    @JoinTable(name = "buffet_piatti",
+            joinColumns = @JoinColumn(name = "buffet_id", referencedColumnName = "id"))
     private Set<Piatto> piatti = new LinkedHashSet<>();
 
 }

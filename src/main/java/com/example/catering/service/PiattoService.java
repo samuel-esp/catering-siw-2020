@@ -4,21 +4,24 @@ import com.example.catering.model.Buffet;
 import com.example.catering.model.Piatto;
 import com.example.catering.repository.BuffetRepository;
 import com.example.catering.repository.PiattoRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
+@Slf4j
 public class PiattoService {
 
     @Autowired
     private PiattoRepository piattoRepository;
 
-    public void createPiatto(String nome){
-        Piatto p = new Piatto();
-        p.setNome(nome);
-        piattoRepository.save(p);
+    public void createPiatto(Piatto piatto){
+        piattoRepository.save(piatto);
+        log.info(piatto.toString());
     }
 
     public List<Piatto> getAllBuffets(){

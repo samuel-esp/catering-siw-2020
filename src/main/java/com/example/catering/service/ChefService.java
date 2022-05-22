@@ -17,12 +17,8 @@ public class ChefService {
     @Autowired
     private ChefRepository chefRepository;
 
-    public void createChef(String nome, String cognome, String nazionalita){
-        Chef c = new Chef();
-        c.setNome(nome);
-        c.setCognome(cognome);
-        c.setNazionalita(nazionalita);
-        chefRepository.save(c);
+    public void createChef(Chef chef){
+        chefRepository.save(chef);
     }
 
     public List<Chef> getAllChefs(){

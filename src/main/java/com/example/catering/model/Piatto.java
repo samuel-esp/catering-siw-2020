@@ -21,4 +21,8 @@ public class Piatto {
     @ManyToMany(mappedBy = "piatti")
     private Set<Buffet> buffet = new java.util.LinkedHashSet<>();
 
+    @OneToMany
+    @JoinColumn(name = "piatto_id")
+    private Set<Ingrediente> ingredienti = new java.util.LinkedHashSet<>();
+
 }

@@ -7,18 +7,18 @@ import com.example.catering.repository.PiattoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class IngredienteService {
 
     @Autowired
     private IngredienteRepository ingredienteRepository;
 
-    public void createIngrediente(String nome){
-        Ingrediente i = new Ingrediente();
-        i.setNome(nome);
-        ingredienteRepository.save(i);
+    public void createIngrediente(Ingrediente ingrediente){
+        ingredienteRepository.save(ingrediente);
     }
 
     public List<Ingrediente> getAllIngredients(){
