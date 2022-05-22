@@ -15,7 +15,7 @@ public class BuffetService {
     @Autowired
     private BuffetRepository buffetRepository;
 
-    public void createBuffer(String nome, String descrizione, Integer prezzo){
+    public void createBuffet(String nome, String descrizione, Integer prezzo){
         Buffet b = new Buffet();
         b.setNome(nome);
         b.setDescrizione(descrizione);
@@ -29,8 +29,8 @@ public class BuffetService {
     }
 
     public Buffet getBuffetById(Long id){
-        Buffet c = buffetRepository.findById(id).get();
-        return c;
+        Buffet b = buffetRepository.findById(id).get();
+        return b;
     }
 
     public List<Buffet> getChefByName(String nome){
