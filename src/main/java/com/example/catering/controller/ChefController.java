@@ -33,7 +33,7 @@ public class ChefController {
 
         chefService.createChef(chef);
 
-        return "redirect:/adminDashboard";
+        return "redirect:/admin/allBuffet";
     }
 
 

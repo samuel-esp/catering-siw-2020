@@ -75,7 +75,7 @@ public class PiattoController {
 
         piattoService.createPiatto(piatto);
 
-        return "redirect:/adminDashboard";
+        return "redirect:/admin/allBuffet";
     }
 
 }

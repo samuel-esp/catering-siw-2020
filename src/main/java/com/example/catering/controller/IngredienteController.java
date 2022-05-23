@@ -36,7 +36,7 @@ public class IngredienteController {
         ingredienteService.createIngrediente(ingrediente);
         log.info("Ingrediente Created");
 
-        return "redirect:/adminDashboard";
+        return "redirect:/admin/allBuffet";
     }
 
 }

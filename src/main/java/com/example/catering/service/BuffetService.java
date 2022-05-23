@@ -21,6 +21,10 @@ public class BuffetService {
         buffetRepository.save(buffet);
     }
 
+    public void updateBuffet(Buffet buffet){
+        buffetRepository.save(buffet);
+    }
+
     public List<Buffet> getAllBuffets(){
         List<Buffet> buffetList = buffetRepository.findAll();
         return buffetList;

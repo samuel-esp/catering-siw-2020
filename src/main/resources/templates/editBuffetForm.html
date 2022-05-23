@@ -31,7 +31,7 @@
 <body>
     <div class="topnav">
         <a class="active" href="/admin/buffetForm">Aggiungi Buffet</a>
-        <a href="/admin/modificaBuffetForm">Modifica Buffet</a>
+        <a href="/admin/allBuffet">Modifica Buffet</a>
         <a href="/admin/ingredienteForm">Aggiungi Ingrediente</a>
         <a href="/admin/chefForm">Aggiungi Chef</a>
         <a href="/admin/piattoForm">Aggiungi Piatto</a>
@@ -42,8 +42,8 @@
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
-                    <h2 class="title">Buffet Form</h2>
-                    <form id="form" action="#" th:action="@{/admin/buffetForm}" th:object="${buffet}" method="post">
+                    <h2 class="title">Edit Buffet Form</h2>
+                    <form id="form" action="#" th:action="@{/admin/editBuffetForm/} + ${buffet.id}" th:object="${buffet}" method="post">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
