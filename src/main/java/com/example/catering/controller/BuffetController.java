@@ -29,8 +29,16 @@ public class BuffetController {
     private ChefService chefService;
 
     @GetMapping("/sideBar")
-    public String getSideBar(){
-        return "index";
+    public String getSideBar(Model model){
+        model.addAttribute("buffet", new Buffet());
+        model.addAttribute("chefList", chefService.getAllChefs());
+        model.addAttribute("primo11", piattoService.getPiattiByTipologia(TipologiaPiatto.PRIMO));
+        model.addAttribute("primo12", piattoService.getPiattiByTipologia(TipologiaPiatto.PRIMO));
+        model.addAttribute("secondo11", piattoService.getPiattiByTipologia(TipologiaPiatto.SECONDO));
+        model.addAttribute("secondo12", piattoService.getPiattiByTipologia(TipologiaPiatto.SECONDO));
+        model.addAttribute("dolce11", piattoService.getPiattiByTipologia(TipologiaPiatto.DOLCE));
+        model.addAttribute("dolce12", piattoService.getPiattiByTipologia(TipologiaPiatto.DOLCE));
+        return "sideBar";
     }
 
     @GetMapping("/admin/buffetForm")
