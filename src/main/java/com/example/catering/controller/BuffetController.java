@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BuffetController {
@@ -30,13 +31,14 @@ public class BuffetController {
     }
 
     @PostMapping("/admin/buffetForm")
-    public String addIngrediente(@ModelAttribute("buffet") Buffet buffet, BindingResult bindingResult){
+    public String addIngrediente(@ModelAttribute("buffet") Buffet buffet, @RequestParam("ingrediente1") String id1,
+                                 @RequestParam("ingrediente2") String id2, @RequestParam("ingrediente3") String id3,
+                                 @RequestParam("ingrediente4") String id4, @RequestParam("ingrediente5") String id5,
+                                 BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
             return "errorPage";
         }
-
-        //chefService.createChef(chef);
 
         return "redirect:/adminDashboard";
     }

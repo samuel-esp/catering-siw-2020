@@ -44,11 +44,11 @@
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Ingrediente</label>
-                                    <label for="select-box1" class="label select-box1"><span class="label-desc">Choose your country</span> </label>
-                                    <select id="select-box1" class="select" th:object="${ingredienti1}" name="ingrediente1">
-                                        <option selected="selected" value="null">Non Selezionato</option>
-                                        <option th:each="ingrediente1 : ${ingredienti1}" th:value="${ingrediente1.id}" th:text="${ingrediente1.nome}"></option>
+                                    <label class="label">Tipologia Piatto</label>
+                                    <label for="select-box1" class="label select-box1"><span class="label-desc">Tipologia Piatto</span> </label>
+                                    <select id="select-box1" class="select" name="tipologia" required>
+                                        <option th:each="tipologia : ${T(com.example.catering.model.enumeration.TipologiaPiatto).values()}" th:value="${tipologia}" th:text="${tipologia.displayName}">
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -56,21 +56,43 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Ingrediente</label>
-                                    <label for="select-box2" class="label select-box1"><span class="label-desc">Choose your country</span> </label>
-                                    <select id="select-box2" class="select" th:object="${ingredienti2}" name="ingrediente2">
+                                    <label class="label">Ingrediente 1</label>
+                                    <label for="select-box2" class="label select-box1"><span class="label-desc">Ingrediente 2</span> </label>
+                                    <select id="select-box2" class="select" th:object="${ingredienti1}" name="ingrediente1">
+                                        <option selected="selected">Non Selezionato</option>
+                                        <option th:each="ingrediente1 : ${ingredienti1}" th:value="${ingrediente1.id}" th:text="${ingrediente1.nome}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Ingrediente 3</label>
+                                    <label for="select-box3" class="label select-box1"><span class="label-desc">Ingrediente 3</span> </label>
+                                    <select id="select-box3" class="select" th:object="${ingredienti2}" name="ingrediente2">
                                         <option selected="selected">Non Selezionato</option>
                                         <option th:each="ingrediente2 : ${ingredienti2}" th:value="${ingrediente2.id}" th:text="${ingrediente2.nome}"></option>
                                     </select>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Ingrediente</label>
-                                    <label for="select-box3" class="label select-box1"><span class="label-desc">Choose your country</span> </label>
-                                    <select id="select-box3" class="select" th:object="${ingredienti3}" name="ingrediente3">
+                                    <label class="label">Ingrediente 4</label>
+                                    <label for="select-box4" class="label select-box1"><span class="label-desc">Ingrediente 4</span> </label>
+                                    <select id="select-box4" class="select" th:object="${ingredienti3}" name="ingrediente3">
                                         <option selected="selected">Non Selezionato</option>
                                         <option th:each="ingrediente3 : ${ingredienti3}" th:value="${ingrediente3.id}" th:text="${ingrediente3.nome}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Ingrediente5</label>
+                                    <label for="select-box5" class="label select-box1"><span class="label-desc">Ingrediente 5</span> </label>
+                                    <select id="select-box5" class="select" th:object="${ingredienti4}" name="ingrediente4">
+                                        <option selected="selected">Non Selezionato</option>
+                                        <option th:each="ingrediente4 : ${ingredienti4}" th:value="${ingrediente4.id}" th:text="${ingrediente4.nome}"></option>
                                     </select>
                                 </div>
                             </div>
@@ -78,19 +100,9 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Ingrediente</label>
-                                    <label for="select-box4" class="label select-box1"><span class="label-desc">Choose your country</span> </label>
-                                    <select id="select-box4" class="select" th:object="${ingredienti4}" name="ingrediente4">
-                                        <option selected="selected">Non Selezionato</option>
-                                        <option th:each="ingrediente4 : ${ingredienti4}" th:value="${ingrediente4.id}" th:text="${ingrediente4.nome}"></option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Ingrediente</label>
-                                    <label for="select-box5" class="label select-box1"><span class="label-desc">Choose your country</span> </label>
-                                    <select id="select-box5" class="select" th:object="${ingredienti5}" name="ingrediente5">
+                                    <label class="label">Tipologia Piatto</label>
+                                    <label for="select-box6" class="label select-box1"><span class="label-desc">Ingrediente 4</span> </label>
+                                    <select id="select-box6" class="select" th:object="${ingredienti5}" name="ingrediente5">
                                         <option selected="selected">Non Selezionato</option>
                                         <option th:each="ingrediente5 : ${ingredienti5}" th:value="${ingrediente5.id}" th:text="${ingrediente5.nome}"></option>
                                     </select>

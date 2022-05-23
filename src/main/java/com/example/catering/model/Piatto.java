@@ -1,5 +1,6 @@
 package com.example.catering.model;
 
+import com.example.catering.model.enumeration.TipologiaPiatto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,5 +25,8 @@ public class Piatto {
     @OneToMany
     @JoinColumn(name = "piatto_id")
     private Set<Ingrediente> ingredienti = new java.util.LinkedHashSet<>();
+
+    @Enumerated(EnumType.STRING)
+    private TipologiaPiatto tipologiaPiatto;
 
 }

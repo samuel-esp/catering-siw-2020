@@ -2,6 +2,7 @@ package com.example.catering.controller;
 
 import com.example.catering.model.Ingrediente;
 import com.example.catering.model.Piatto;
+import com.example.catering.model.enumeration.TipologiaPiatto;
 import com.example.catering.service.IngredienteService;
 import com.example.catering.service.PiattoService;
 import lombok.extern.slf4j.Slf4j;
@@ -40,7 +41,7 @@ public class PiattoController {
     public String addIngrediente(@ModelAttribute("piatto") Piatto piatto, @RequestParam("ingrediente1") String id1,
                                  @RequestParam("ingrediente2") String id2, @RequestParam("ingrediente3") String id3,
                                  @RequestParam("ingrediente4") String id4, @RequestParam("ingrediente5") String id5,
-                                 BindingResult bindingResult){
+                                 @RequestParam ("tipologia") TipologiaPiatto tipologia, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
             return "errorPage";
@@ -49,6 +50,8 @@ public class PiattoController {
         log.info(id1);
         log.info(id2);
         log.info(id3);
+
+        piatto.setTipologiaPiatto(tipologia);
 
         if(!id1.equals("Non Selezionato")){
             piatto.getIngredienti().add(ingredienteService.getIngredienteById(Long.parseLong(id1)));
