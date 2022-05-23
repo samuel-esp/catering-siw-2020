@@ -34,7 +34,7 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Buffet Form</h2>
-                    <form action="#" th:action="@{/admin/buffetForm}" th:object="${buffet}" method="post">
+                    <form id="form" action="#" th:action="@{/admin/buffetForm}" th:object="${buffet}" method="post">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -53,14 +53,14 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Prezzo</label>
-                                    <input class="input--style-4" type="number" name="prezzo" th:field="*{prezzo}" required>
+                                    <input class="input--style-4" type="number" name="prezzo" th:field="*{prezzoInt}" required>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Chef</label>
                                     <label for="select-box3" class="label select-box1"><span class="label-desc">Chef</span> </label>
-                                    <select id="select-box3" class="select" th:object="${chefList}" name="ingrediente3" required>
+                                    <select id="select-box3" class="select" th:object="${chefList}" name="chefSelected" required>
                                         <option th:each="chef : ${chefList}" th:value="${chef.id}" th:text="${chef.nome + ' ' + chef.cognome}"></option>
                                     </select>
                                 </div>
@@ -69,19 +69,19 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Primo #1</label>
-                                    <label for="select-box4" class="label select-box1"><span class="label-desc">Primo #1</span> </label>
-                                    <select id="select-box4" class="select" th:object="${primo1}" name="primo1" required>
-                                        <option th:each="primo1 : ${primo1}" th:value="${primo1.id}" th:text="${primo1.nome}"></option>
+                                    <label class="label">Primo 1</label>
+                                    <label for="select-box4" class="label select-box1"><span class="label-desc">Seleziona Primo 1</span> </label>
+                                    <select id="select-box4" class="select" th:object="${primo11}" name="primo11" required>
+                                        <option th:each="primo11 : ${primo11}" th:value="${primo11.id}" th:text="${primo11.nome}"></option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Primo #2</label>
-                                    <label for="select-box5" class="label select-box1"><span class="label-desc">Primo #2</span> </label>
-                                    <select id="select-box5" class="select" th:object="${primo2}" name="primo2" required>
-                                        <option th:each="primo2 : ${primo2}" th:value="${primo2.id}" th:text="${primo2.nome}"></option>
+                                    <label class="label">Primo 2</label>
+                                    <label for="select-box5" class="label select-box1"><span class="label-desc">Seleziona Primo 2</span> </label>
+                                    <select id="select-box5" class="select" th:object="${primo12}" name="primo12" required>
+                                        <option th:each="primo12 : ${primo12}" th:value="${primo12.id}" th:text="${primo12.nome}"></option>
                                     </select>
                                 </div>
                             </div>
@@ -89,19 +89,19 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Secondo #1</label>
-                                    <label for="select-box6" class="label select-box1"><span class="label-desc">Secondo #1</span> </label>
-                                    <select id="select-box6" class="select" th:object="${secondo1}" name="secondo1" required>
-                                        <option th:each="secondo1 : ${secondo1}" th:value="${secondo1.id}" th:text="${secondo1.nome}"></option>
+                                    <label class="label">Secondo 1</label>
+                                    <label for="select-box6" class="label select-box1"><span class="label-desc">Seleziona Secondo 1</span> </label>
+                                    <select id="select-box6" class="select" th:object="${secondo11}" name="secondo11" required>
+                                        <option th:each="secondo11 : ${secondo11}" th:value="${secondo11.id}" th:text="${secondo11.nome}"></option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Secondo #2</label>
-                                    <label for="select-box7" class="label select-box1"><span class="label-desc">Secondo #2</span> </label>
-                                    <select id="select-box7" class="select" th:object="${secondo2}" name="secondo2" required>
-                                        <option th:each="secondo2 : ${secondo2}" th:value="${secondo2.id}" th:text="${secondo2.nome}"></option>
+                                    <label class="label">Secondo 2</label>
+                                    <label for="select-box7" class="label select-box1"><span class="label-desc">Seleziona Secondo 2</span> </label>
+                                    <select id="select-box7" class="select" th:object="${secondo12}" name="secondo12" required>
+                                        <option th:each="secondo12 : ${secondo12}" th:value="${secondo12.id}" th:text="${secondo12.nome}"></option>
                                     </select>
                                 </div>
                             </div>
@@ -110,20 +110,18 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Dolce 1</label>
-                                    <label for="select-box8" class="label select-box1"><span class="label-desc">Dolce #1</span> </label>
-                                    <select id="select-box8" class="select" th:object="${dolce1}" name="dolce1" required>
-                                        <option selected="selected">Non Selezionato</option>
-                                        <option th:each="dolce1 : ${dolce1}" th:value="${dolce1.id}" th:text="${dolce1.nome}"></option>
+                                    <label for="select-box8" class="label select-box1"><span class="label-desc">Seleziona Dolce 1</span> </label>
+                                    <select id="select-box8" class="select" th:object="${dolce11}" name="dolce11" required>
+                                        <option th:each="dolce11 : ${dolce11}" th:value="${dolce11.id}" th:text="${dolce11.nome}"></option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Dolce 2</label>
-                                    <label for="select-box9" class="label select-box1"><span class="label-desc">Dolce #2</span> </label>
-                                    <select id="select-box9" class="select" th:object="${dolce2}" name="dolcd2" required>
-                                        <option selected="selected">Non Selezionato</option>
-                                        <option th:each="dolce2 : ${dolce2}" th:value="${dolce2.id}" th:text="${dolce2.nome}"></option>
+                                    <label for="select-box9" class="label select-box1"><span class="label-desc">Seleziona Dolce 2</span> </label>
+                                    <select id="select-box9" class="select" th:object="${dolce2}" name="dolce12" required>
+                                        <option th:each="dolce12 : ${dolce12}" th:value="${dolce12.id}" th:text="${dolce12.nome}"></option>
                                     </select>
                                 </div>
                             </div>
@@ -174,6 +172,32 @@ $("select").on("change" , function() {
 
     label.find(".label-desc").html(selection);
 
-});</script>
+});
+</script>
+<script>
+    $('form').submit(function(e) {
+    var bk1 = document.getElementById("select-box4").value;
+    var bk2 = document.getElementById("select-box5").value;
+    var bk3 = document.getElementById("select-box6").value;
+    var bk4 = document.getElementById("select-box7").value;
+    var bk5 = document.getElementById("select-box8").value;
+    var bk6 = document.getElementById("select-box9").value;
 
+    var test = [bk1, bk2, bk3, bk4, bk5, bk6];
+    var res = true;
+    for(var i = 0; i < test.length; i++) {
+        if (test.indexOf(test[i], i + 1) >= 0) {
+            res = false;
+            break;
+        }
+    }
+
+    if(res){
+        document.block_form.submit();
+    }else{
+        alert("Per uno stesso catering non possono esserci due primi uguali, due secondi uguali o due dolci uguali! Correggi prima di continuare");
+        e.preventDefault();
+        document.getElementById("block_error").value = "Multiple blocks have same selected option";
+    }});
+</script>
 </html>

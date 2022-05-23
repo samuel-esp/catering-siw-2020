@@ -45,8 +45,8 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Tipologia Piatto</label>
-                                    <label for="select-box1" class="label select-box1"><span class="label-desc">Tipologia Piatto</span> </label>
-                                    <select id="select-box1" class="select" name="tipologia" required>
+                                    <label for="select-box1" class="label select-box1"><span class="label-desc">Primo</span> </label>
+                                    <select id="select-box1" class="select" name="tipologia"    required>
                                         <option th:each="tipologia : ${T(com.example.catering.model.enumeration.TipologiaPiatto).values()}" th:value="${tipologia}" th:text="${tipologia.displayName}">
                                         </option>
                                     </select>
@@ -100,8 +100,8 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Tipologia Piatto</label>
-                                    <label for="select-box6" class="label select-box1"><span class="label-desc">Ingrediente 4</span> </label>
+                                    <label class="label">Ingrediente 5</label>
+                                    <label for="select-box6" class="label select-box1"><span class="label-desc">Ingrediente 5</span> </label>
                                     <select id="select-box6" class="select" th:object="${ingredienti5}" name="ingrediente5">
                                         <option selected="selected">Non Selezionato</option>
                                         <option th:each="ingrediente5 : ${ingredienti5}" th:value="${ingrediente5.id}" th:text="${ingrediente5.nome}"></option>

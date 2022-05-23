@@ -8,7 +8,6 @@ import java.util.Set;
 @Entity
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
-@ToString @EqualsAndHashCode
 public class Utente {
 
     @Id

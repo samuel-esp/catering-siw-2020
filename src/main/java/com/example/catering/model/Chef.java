@@ -8,7 +8,6 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
-@ToString @EqualsAndHashCode
 public class Chef {
 
     @Id

@@ -2,6 +2,7 @@ package com.example.catering.service;
 
 import com.example.catering.model.Buffet;
 import com.example.catering.model.Piatto;
+import com.example.catering.model.enumeration.TipologiaPiatto;
 import com.example.catering.repository.BuffetRepository;
 import com.example.catering.repository.PiattoRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +33,10 @@ public class PiattoService {
     public Piatto getPiattoById(Long id){
         Piatto p = piattoRepository.findById(id).get();
         return p;
+    }
+
+    public List<Piatto> getPiattiByTipologia(TipologiaPiatto tipologiaPiatto){
+        return piattoRepository.findAllByTipologiaPiatto(tipologiaPiatto);
     }
 
 

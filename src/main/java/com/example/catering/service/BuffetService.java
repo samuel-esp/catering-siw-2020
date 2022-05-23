@@ -17,12 +17,8 @@ public class BuffetService {
     @Autowired
     private BuffetRepository buffetRepository;
 
-    public void createBuffet(String nome, String descrizione, Integer prezzo){
-        Buffet b = new Buffet();
-        b.setNome(nome);
-        b.setDescrizione(descrizione);
-        b.setPrezzoInt(prezzo);
-        buffetRepository.save(b);
+    public void createBuffet(Buffet buffet){
+        buffetRepository.save(buffet);
     }
 
     public List<Buffet> getAllBuffets(){
