@@ -36,5 +36,11 @@ public class ChefController {
         return "redirect:/admin/allBuffet";
     }
 
+    @GetMapping("/allChefs")
+    public String getAllChefs(Model model){
+        model.addAttribute("chefList", chefService.getAllChefs());
+        return "allChef";
+    }
+
 
 }

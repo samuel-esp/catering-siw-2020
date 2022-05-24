@@ -38,9 +38,19 @@ public class BuffetController {
         return "allBuffet";
     }
 
-    @GetMapping("/allBuffetUser")
+    @GetMapping("/allBuffet")
     public String getAllBuffetUser(Model model){
         model.addAttribute("buffetList", buffetService.getAllBuffets());
+        return "allBuffetUser";
+    }
+
+    @GetMapping("/allBuffet/chef/{id}")
+    public String getAllBuffetByChef(@PathVariable("id") String id, Model model){
+        Chef chef = chefService.getChefById(Long.parseLong(id));
+        Set<Buffet> buffetSet = chef.getBuffet();
+        List<Buffet> buffetList = new LinkedList<>();
+        buffetList.addAll(buffetSet);
+        model.addAttribute("buffetList", buffetList);
         return "allBuffetUser";
     }
 
