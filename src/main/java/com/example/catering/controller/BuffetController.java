@@ -2,6 +2,7 @@ package com.example.catering.controller;
 
 import com.example.catering.model.Buffet;
 import com.example.catering.model.Chef;
+import com.example.catering.model.Ingrediente;
 import com.example.catering.model.Piatto;
 import com.example.catering.model.enumeration.TipologiaPiatto;
 import com.example.catering.service.BuffetService;
@@ -13,8 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import javax.persistence.criteria.CriteriaBuilder;
+import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -34,6 +36,65 @@ public class BuffetController {
     public String getAllBuffet(Model model){
         model.addAttribute("buffetList", buffetService.getAllBuffets());
         return "allBuffet";
+    }
+
+    @GetMapping("/allBuffetUser")
+    public String getAllBuffetUser(Model model){
+        model.addAttribute("buffetList", buffetService.getAllBuffets());
+        return "allBuffetUser";
+    }
+
+    @GetMapping("/buffet/{id}")
+    public String getBuffetCard(@PathVariable("id") String id, Model model){
+        Buffet buffet = buffetService.getBuffetById(Long.parseLong(id));
+        Set<Piatto> piattiSet = buffet.getPiatti();
+
+        List<Piatto> piattiLista = new LinkedList<>();
+        piattiLista.addAll(piattiSet);
+
+        List<Piatto> primi = new LinkedList<>();
+        List<Piatto> secondi = new LinkedList<>();
+        List<Piatto> dolci = new LinkedList<>();
+
+        for(Piatto piatto: piattiLista){
+            int i = 0;
+            int j = 0;
+            int t = 0;
+            if(piatto.getTipologiaPiatto() == TipologiaPiatto.PRIMO ){
+                primi.add(piatto);
+                List<Ingrediente> listaIngredienti = new LinkedList<>();
+                listaIngredienti.addAll(piatto.getIngredienti());
+                model.addAttribute("primoIngredienti" + i, listaIngredienti);
+                i = i+1;
+            }
+            if(piatto.getTipologiaPiatto() == TipologiaPiatto.SECONDO){
+                secondi.add(piatto);
+                List<Ingrediente> listaIngredienti = new LinkedList<>();
+                listaIngredienti.addAll(piatto.getIngredienti());
+                model.addAttribute("secondoIngredienti" + j, listaIngredienti);
+                j = j+1;
+            }
+            if(piatto.getTipologiaPiatto() == TipologiaPiatto.DOLCE){
+                dolci.add(piatto);
+                List<Ingrediente> listaIngredienti = new LinkedList<>();
+                listaIngredienti.addAll(piatto.getIngredienti());
+                model.addAttribute("dolceIngredienti" + t, listaIngredienti);
+                t = t+1;
+            }
+        }
+
+        model.addAttribute("buffet", buffet);
+        model.addAttribute("primi", primi);
+        model.addAttribute("secondi", secondi);
+        model.addAttribute("dolci", dolci);
+
+        return "buffetCard";
+    }
+
+    @GetMapping("/chef/{id}/allBuffetUser")
+    public String getAllBuffetByChefUser(@PathVariable("id") String id, Model model){
+        model.addAttribute("buffetList", buffetService.getAllBuffets());
+        return "allBuffetByChef";
     }
 
     @GetMapping("/admin/buffetForm")

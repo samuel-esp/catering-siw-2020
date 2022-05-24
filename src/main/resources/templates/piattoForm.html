@@ -67,7 +67,7 @@
                                 <div class="input-group">
                                     <label class="label">Ingrediente 1</label>
                                     <label for="select-box2" class="label select-box1"><span class="label-desc">Ingrediente 2</span> </label>
-                                    <select id="select-box2" class="select" th:object="${ingredienti1}" name="ingrediente1">
+                                    <select id="select-box2" class="select" th:object="${ingredienti1}" name="ingrediente1" required>
                                         <option selected="selected">Non Selezionato</option>
                                         <option th:each="ingrediente1 : ${ingredienti1}" th:value="${ingrediente1.id}" th:text="${ingrediente1.nome}"></option>
                                     </select>
