@@ -156,7 +156,7 @@ public class BuffetController {
 
         buffetService.createBuffet(buffet);
 
-        return "redirect::/admin/allBuffet";
+        return "redirect:/admin/allBuffet";
     }
 
     @PostMapping("/admin/editBuffetForm/{id}")
