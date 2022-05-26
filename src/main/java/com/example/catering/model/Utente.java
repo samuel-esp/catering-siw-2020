@@ -22,8 +22,5 @@ public class Utente {
     @OneToMany
     private Set<Buffet> buffetPrenotati = new java.util.LinkedHashSet<>();
 
-    @OneToMany
-    @JoinColumn(name = "utente_id")
-    private List<Ordine> ordiniEffettuati = new java.util.LinkedList<>();
 
 }
