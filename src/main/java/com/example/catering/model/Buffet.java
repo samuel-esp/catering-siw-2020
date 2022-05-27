@@ -3,6 +3,7 @@ package com.example.catering.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -15,10 +16,13 @@ public class Buffet {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     private String nome;
 
+    @NotNull
     private String descrizione;
 
+    @NotNull
     private Integer prezzoInt;
 
     @ManyToOne

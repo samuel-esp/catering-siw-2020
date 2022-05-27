@@ -8,6 +8,7 @@ import com.example.catering.model.enumeration.TipologiaPiatto;
 import com.example.catering.service.BuffetService;
 import com.example.catering.service.ChefService;
 import com.example.catering.service.PiattoService;
+import com.example.catering.service.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +32,9 @@ public class BuffetController {
 
     @Autowired
     private ChefService chefService;
+
+    @Autowired
+    private UtenteService utenteService;
 
     @GetMapping("/admin/allBuffet")
     public String getAllBuffet(Model model){
@@ -179,6 +183,12 @@ public class BuffetController {
         buffetService.updateBuffet(buffet);
 
         return "redirect:/admin/allBuffet";
+    }
+
+    @PostMapping("/prenotaBuffet/{id}")
+    public String prenotaBuffet(@PathVariable String id){
+        utenteService.prenotaBuffet(Long.parseLong(id));
+        return "redirect:/ordini";
     }
 
 }

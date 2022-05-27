@@ -1,9 +1,9 @@
 package com.example.catering.model;
 
-import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Getter @Setter
@@ -14,10 +14,13 @@ public class Ingrediente {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     private String nome;
 
+    @NotNull
     private String origine;
 
+    @NotNull
     private String descrizione;
 
     @ManyToOne

@@ -3,6 +3,7 @@ package com.example.catering.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
@@ -14,10 +15,13 @@ public class Chef {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     private String nome;
 
+    @NotNull
     private String cognome;
 
+    @NotNull
     private String nazionalita;
 
     @OneToMany(mappedBy = "chef")

@@ -4,6 +4,7 @@ import com.example.catering.model.enumeration.TipologiaPiatto;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Set;
 
@@ -16,6 +17,7 @@ public class Piatto {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     private String nome;
 
     @ManyToMany(mappedBy = "piatti")

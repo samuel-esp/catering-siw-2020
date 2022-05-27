@@ -158,9 +158,10 @@
                                 </div>
                             </div>
                             <div class="col-md-12 text-center load-more">
-                                <button class="btn btn-primary" type="button">
-                                    <span role="status" aria-hidden="true"></span>Compra
+                                <form th:action="@{/prenotaBuffet/} + ${buffet.id}" method="post">
+                                <button class="btn btn-primary" type="submit">Compra
                                 </button>
+                                </form>
                             </div>
                         </div>
                     </div>
