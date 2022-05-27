@@ -5,6 +5,8 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -33,6 +35,9 @@ public class Buffet {
     @JoinTable(name = "buffet_piatti",
             joinColumns = @JoinColumn(name = "buffet_id", referencedColumnName = "id"))
     private Set<Piatto> piatti = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "buffet")
+    private List<Ordine> ordine = new LinkedList<>();
 
 }
 

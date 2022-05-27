@@ -36,8 +36,11 @@ public class Utente {
     @NotNull
     private String role;
 
-    @OneToMany
-    private Set<Buffet> buffetPrenotati = new java.util.LinkedHashSet<>();
+    /*@OneToMany(mappedBy = "utente")
+    private Set<Buffet> buffetPrenotati = new java.util.LinkedHashSet<>();*/
+
+    @OneToMany(mappedBy = "utente")
+    private List<Ordine> ordiniEffettuati = new java.util.LinkedList<>();
 
 
 }

@@ -1,8 +1,10 @@
 package com.example.catering.service;
 
 import com.example.catering.model.Buffet;
+import com.example.catering.model.Ordine;
 import com.example.catering.model.Utente;
 import com.example.catering.repository.BuffetRepository;
+import com.example.catering.repository.OrdineRepository;
 import com.example.catering.repository.UtenteRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,9 @@ public class UtenteService {
     @Autowired
     private BuffetRepository buffetRepository;
 
+    @Autowired
+    private OrdineRepository ordineRepository;
+
     public Utente getUserById(Long id){
         return utenteRepository.findById(id).get();
     }
@@ -49,18 +54,20 @@ public class UtenteService {
         utenteRepository.save(utente);
     }
 
-    public Set<Buffet> getOrdersByUser(Long id){
-        return utenteRepository.findById(id).get().getBuffetPrenotati();
-    }
 
     public void prenotaBuffet(Long id){
+
         Buffet buffet = buffetRepository.findById(id).get();
+
         if(buffet!=null){
-            log.info("ARRIVED");
+            log.info(buffet.getNome());
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             Utente utente = this.getUserByEmail(userDetails.getUsername());
             log.info(utente.getEmail());
-            utente.getBuffetPrenotati().add(buffet);
+            Ordine ordine = new Ordine();
+            ordine.setBuffet(buffet);
+            ordine.setUtente(utente);
+            ordineRepository.save(ordine);
         }
     }
 
