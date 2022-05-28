@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.Set;
@@ -58,10 +59,12 @@ public class UtenteController {
     }
 
     @PostMapping("/editUser")
-    public String editUser(@Valid @ModelAttribute UtenteEditDto utenteEdit, BindingResult bindingResult){
+    public String editUser(@Valid @ModelAttribute UtenteEditDto utenteEdit, BindingResult bindingResult,
+                           RedirectAttributes redirAttrs){
 
         if(bindingResult.hasErrors()){
             log.info(bindingResult.toString());
+            redirAttrs.addFlashAttribute("error", "submit the form again, make sure your phone number has exactly 10 numbers");
             return "redirect:/editUser";
         }
 
