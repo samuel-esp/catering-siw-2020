@@ -54,6 +54,8 @@ public class AuthenticationController {
             utenteFinale.setCognome(utente.getCognome());
             utenteFinale.setEmail(utente.getEmail());
             utenteFinale.setPassword(utente.getPassword());
+            utenteFinale.setCellulare(utente.getCellulare());
+            utenteFinale.setIndirizzo(utente.getIndirizzo());
             utenteFinale.setRole(Utente.DEFAULT_ROLE);
             utenteService.saveUser(utenteFinale);
             return "redirect:/index";

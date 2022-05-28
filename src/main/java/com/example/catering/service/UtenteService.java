@@ -3,6 +3,7 @@ package com.example.catering.service;
 import com.example.catering.model.Buffet;
 import com.example.catering.model.Ordine;
 import com.example.catering.model.Utente;
+import com.example.catering.model.dto.UtenteEditDto;
 import com.example.catering.repository.BuffetRepository;
 import com.example.catering.repository.OrdineRepository;
 import com.example.catering.repository.UtenteRepository;
@@ -71,4 +72,13 @@ public class UtenteService {
         }
     }
 
+    public void editUtente(UtenteEditDto utenteEdit, Utente utente) {
+
+        utente.setIndirizzo(utenteEdit.getIndirizzo());
+        utente.setCellulare(utenteEdit.getCellulare());
+        utente.setNome(utenteEdit.getNome());
+        utente.setCognome(utenteEdit.getCognome());
+        utenteRepository.save(utente);
+
+    }
 }

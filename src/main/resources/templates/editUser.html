@@ -10,7 +10,7 @@
     <meta name="keywords" content="Colorlib Templates">
 
 
-    <title>Login Utente</title>
+    <title>Modifica Utente</title>
 
     <link th:href="@{/assets/img/block.png}" rel="icon">
     <link th:href="@{/assets/vendorForm/mdi-font/css/material-design-iconic-font.min.css}" rel="stylesheet" media="all">
@@ -27,25 +27,41 @@
 </head>
 <body>
 <div class="duplicate-email" role="alert" th:text="${duplicate}" th:if="${duplicate}"></div>
-<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins" th:object="${utente}">
     <div class="wrapper wrapper--w680">
         <div class="card card-4">
             <div class="card-body">
-                <h2 class="title">Login Utente</h2>
-                <form action="#" th:action="@{/login}" method="post">
+                <h2 class="title">Modifica Campi Utente</h2>
+                <form action="#" th:action="@{/editUser}" th:object="${utenteEdit}" method="post">
                     <div class="row row-space">
                         <div class="col-2">
                             <div class="input-group">
-                                <label class="label">Email</label>
-                                <input class="input--style-4" type="email" name="email" id="email" required>
+                                <label class="label">Nome</label>
+                                <input class="input--style-4" type="text" name="first_name" th:text="${utente.nome}" th:field="${utenteEdit.nome}" required>
                             </div>
                         </div>
                         <div class="col-2">
                             <div class="input-group">
-                                <label class="label">Password</label>
-                                <input class="input--style-4" type="password" name="password" id="password" required>
+                                <label class="label">Cognome</label>
+                                <input class="input--style-4" type="text" name="last_name" th:text="${utente.cognome}" th:field="${utenteEdit.cognome}" required>
                             </div>
                         </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Cellulare</label>
+                                <input class="input--style-4" type="text" name="first_name" th:text="${utente.cellulare}" th:field="${utenteEdit.cellulare}" required>
+                                <label class="error-red" th:if="${#fields.hasErrors('cellulare')}" th:errors="*{cellulare}">Email Not Valid</label>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Indirizzo</label>
+                                <input class="input--style-4" type="text" name="last_name" th:text="${utente.indirizzo}" th:field="${utenteEdit.indirizzo}" required>
+                            </div>
+                        </div>
+                    </div>
                         <div class="p-t-15">
                             <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
                         </div>

@@ -50,6 +50,21 @@
                     <div class="row row-space">
                         <div class="col-2">
                             <div class="input-group">
+                                <label class="label">Cellulare</label>
+                                <input class="input--style-4" type="text" name="first_name" th:field="*{cellulare}" required>
+                                <label class="error-red" th:if="${#fields.hasErrors('cellulare')}" th:errors="*{cellulare}">Email Not Valid</label>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Indirizzo</label>
+                                <input class="input--style-4" type="text" name="last_name" th:field="*{indirizzo}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
                                 <label class="label">Email</label>
                                 <input class="input--style-4" type="email" name="first_name" th:field="*{email}"required>
                                 <label class="error-red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Not Valid</label>
