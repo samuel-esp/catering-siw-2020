@@ -56,7 +56,12 @@ public class AuthenticationController {
             utenteFinale.setPassword(utente.getPassword());
             utenteFinale.setCellulare(utente.getCellulare());
             utenteFinale.setIndirizzo(utente.getIndirizzo());
-            utenteFinale.setRole(Utente.DEFAULT_ROLE);
+            if(utenteService.allUsers().size()==0){
+                log.info(String.valueOf(utenteService.allUsers().size()));
+                utenteFinale.setRole(Utente.ADMIN_ROLE);
+            }else{
+                utenteFinale.setRole(Utente.DEFAULT_ROLE);
+            }
             utenteService.saveUser(utenteFinale);
             return "redirect:/index";
         }
