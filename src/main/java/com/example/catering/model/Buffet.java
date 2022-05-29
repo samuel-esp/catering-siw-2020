@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -25,6 +26,7 @@ public class Buffet {
     private String descrizione;
 
     @NotNull
+    @Positive
     private Integer prezzoInt;
 
     @ManyToOne
