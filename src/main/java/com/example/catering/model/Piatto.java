@@ -21,11 +21,11 @@ public class Piatto {
     private String nome;
 
     @ManyToMany(mappedBy = "piatti")
-    private Set<Buffet> buffet = new java.util.LinkedHashSet<>();
+    private List<Buffet> buffet = new java.util.LinkedList<>();
 
     @OneToMany
     @JoinColumn(name = "piatto_id")
-    private Set<Ingrediente> ingredienti = new java.util.LinkedHashSet<>();
+    private List<Ingrediente> ingredienti = new java.util.LinkedList<>();
 
     @Enumerated(EnumType.STRING)
     private TipologiaPiatto tipologiaPiatto;

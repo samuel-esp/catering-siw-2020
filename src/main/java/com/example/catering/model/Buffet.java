@@ -36,7 +36,7 @@ public class Buffet {
     @ManyToMany
     @JoinTable(name = "buffet_piatti",
             joinColumns = @JoinColumn(name = "buffet_id", referencedColumnName = "id"))
-    private Set<Piatto> piatti = new LinkedHashSet<>();
+    private List<Piatto> piatti = new LinkedList<>();
 
     @OneToMany(mappedBy = "buffet")
     private List<Ordine> ordine = new LinkedList<>();

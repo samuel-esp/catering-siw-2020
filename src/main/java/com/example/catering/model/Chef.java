@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,7 +26,7 @@ public class Chef {
     private String nazionalita;
 
     @OneToMany(mappedBy = "chef")
-    private Set<Buffet> buffet = new java.util.LinkedHashSet<>();
+    private List<Buffet> buffet = new java.util.LinkedList<>();
 
 
 }

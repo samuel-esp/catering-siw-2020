@@ -51,7 +51,7 @@ public class BuffetController {
     @GetMapping("/allBuffet/chef/{id}")
     public String getAllBuffetByChef(@PathVariable("id") String id, Model model){
         Chef chef = chefService.getChefById(Long.parseLong(id));
-        Set<Buffet> buffetSet = chef.getBuffet();
+        List<Buffet> buffetSet = chef.getBuffet();
         List<Buffet> buffetList = new LinkedList<>();
         buffetList.addAll(buffetSet);
         model.addAttribute("buffetList", buffetList);
@@ -61,7 +61,7 @@ public class BuffetController {
     @GetMapping("/buffet/{id}")
     public String getBuffetCard(@PathVariable("id") String id, Model model){
         Buffet buffet = buffetService.getBuffetById(Long.parseLong(id));
-        Set<Piatto> piattiSet = buffet.getPiatti();
+        List<Piatto> piattiSet = buffet.getPiatti();
 
         List<Piatto> piattiLista = new LinkedList<>();
         piattiLista.addAll(piattiSet);
@@ -129,6 +129,32 @@ public class BuffetController {
 
         model.addAttribute("buffet", buffetService.getBuffetById(Long.parseLong(id)));
         model.addAttribute("chefList", chefService.getAllChefs());
+
+        List<Piatto> piattiAttuali = buffetService.getBuffetById(Long.parseLong(id)).getPiatti();
+        List<Piatto> primiAttuali = new LinkedList<>();
+        List<Piatto> secondiAttuali = new LinkedList<>();
+        List<Piatto> dolciAttuali = new LinkedList<>();
+
+        for (Piatto piatto: piattiAttuali){
+            if(piatto.getTipologiaPiatto()==TipologiaPiatto.PRIMO){
+                primiAttuali.add(piatto);
+            }
+            if(piatto.getTipologiaPiatto()==TipologiaPiatto.SECONDO){
+                secondiAttuali.add(piatto);
+            }
+            if(piatto.getTipologiaPiatto()==TipologiaPiatto.DOLCE){
+                dolciAttuali.add(piatto);
+            }
+        }
+
+        model.addAttribute("primo11attuale", primiAttuali.get(0));
+        model.addAttribute("primo12attuale", primiAttuali.get(1));
+        model.addAttribute("secondo11attuale", secondiAttuali.get(0));
+        model.addAttribute("secondo12attuale", secondiAttuali.get(1));
+        model.addAttribute("dolce11attuale", dolciAttuali.get(0));
+        model.addAttribute("dolce12attuale", dolciAttuali.get(1));
+
+
         model.addAttribute("primo11", piattoService.getPiattiByTipologia(TipologiaPiatto.PRIMO));
         model.addAttribute("primo12", piattoService.getPiattiByTipologia(TipologiaPiatto.PRIMO));
         model.addAttribute("secondo11", piattoService.getPiattiByTipologia(TipologiaPiatto.SECONDO));
