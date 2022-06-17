@@ -14,7 +14,6 @@
     <name>catering</name>
     <description>catering</description>
     <properties>
-        <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
