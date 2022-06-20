@@ -82,7 +82,7 @@
                                     <label for="select-box4" class="label select-box1"><span class="label-desc" th:text="${primo11attuale.nome}">Seleziona Primo 1</span> </label>
                                     <select id="select-box4" class="select" th:object="${primo11}" name="primo11" required>
                                         <option selected="selected" th:text="${primo11attuale.nome}"></option>
-                                        <option th:each="primo11 : ${primo11}" th:value="${primo11.id}" th:text="${primo11.nome}"></option>
+                                        <option th:each="primo11 : ${primo11}" th:value="${primo11}" th:text="${primo11.nome}"></option>
                                     </select>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                                     <label for="select-box5" class="label select-box1"><span class="label-desc" th:text="${primo12attuale.nome}">Seleziona Primo 2</span> </label>
                                     <select id="select-box5" class="select" th:object="${primo12}" name="primo12" required>
                                         <option selected="selected" th:text="${primo12attuale.nome}"></option>
-                                        <option th:each="primo12 : ${primo12}" th:value="${primo12.id}" th:text="${primo12.nome}"></option>
+                                        <option th:each="primo12 : ${primo12}" th:value="${primo12}" th:text="${primo12.nome}"></option>
                                     </select>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@
                                     <label for="select-box6" class="label select-box1"><span class="label-desc" th:text="${secondo11attuale.nome}">Seleziona Secondo 1</span> </label>
                                     <select id="select-box6" class="select" th:object="${secondo11}" name="secondo11" required>
                                         <option selected="selected" th:text="${secondo11attuale.nome}"></option>
-                                        <option th:each="secondo11 : ${secondo11}" th:value="${secondo11.id}" th:text="${secondo11.nome}"></option>
+                                        <option th:each="secondo11 : ${secondo11}" th:value="${secondo11}" th:text="${secondo11.nome}"></option>
                                     </select>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                                     <label for="select-box7" class="label select-box1"><span class="label-desc" th:text="${secondo12attuale.nome}">Seleziona Secondo 2</span> </label>
                                     <select id="select-box7" class="select" th:object="${secondo12}" name="secondo12" required>
                                         <option selected="selected" th:text="${secondo12attuale.nome}"></option>
-                                        <option th:each="secondo12 : ${secondo12}" th:value="${secondo12.id}" th:text="${secondo12.nome}"></option>
+                                        <option th:each="secondo12 : ${secondo12}" th:value="${secondo12}" th:text="${secondo12.nome}"></option>
                                     </select>
                                 </div>
                             </div>
@@ -126,7 +126,7 @@
                                     <label for="select-box8" class="label select-box1"><span class="label-desc" th:text="${dolce11attuale.nome}">Seleziona Dolce 1</span> </label>
                                     <select id="select-box8" class="select" th:object="${dolce11}" name="dolce11" required>
                                         <option selected="selected" th:text="${dolce11attuale.nome}"></option>
-                                        <option th:each="dolce11 : ${dolce11}" th:value="${dolce11.id}" th:text="${dolce11.nome}"></option>
+                                        <option th:each="dolce11 : ${dolce11}" th:value="${dolce11}" th:text="${dolce11.nome}"></option>
                                     </select>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
                                     <label for="select-box9" class="label select-box1"><span class="label-desc"th:text="${dolce12attuale.nome}">Seleziona Dolce 2</span> </label>
                                     <select id="select-box9" class="select" th:object="${dolce2}" name="dolce12" required>
                                         <option selected="selected" th:text="${dolce12attuale.nome}"></option>
-                                        <option th:each="dolce12 : ${dolce12}" th:value="${dolce12.id}" th:text="${dolce12.nome}"></option>
+                                        <option th:each="dolce12 : ${dolce12}" th:value="${dolce12}" th:text="${dolce12.nome}"></option>
                                     </select>
                                 </div>
                             </div>

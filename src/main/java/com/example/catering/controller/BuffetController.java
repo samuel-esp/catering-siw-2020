@@ -9,6 +9,7 @@ import com.example.catering.service.BuffetService;
 import com.example.catering.service.ChefService;
 import com.example.catering.service.PiattoService;
 import com.example.catering.service.UtenteService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,7 @@ import java.util.List;
 import java.util.Set;
 
 @Controller
+@Slf4j
 public class BuffetController {
 
     @Autowired
@@ -129,6 +131,7 @@ public class BuffetController {
 
         model.addAttribute("buffet", buffetService.getBuffetById(Long.parseLong(id)));
         model.addAttribute("chefList", chefService.getAllChefs());
+        model.addAttribute("countBuffet", buffetService.getAllBuffets().size());
 
         List<Piatto> piattiAttuali = buffetService.getBuffetById(Long.parseLong(id)).getPiatti();
         List<Piatto> primiAttuali = new LinkedList<>();
@@ -196,6 +199,10 @@ public class BuffetController {
                                    @RequestParam("dolce12") Piatto dolce12, @RequestParam("chefSelected") Chef chef,
                                    BindingResult bindingResult){
 
+        if(bindingResult.hasErrors()){
+            log.info(bindingResult.toString());
+        }
+
         buffet.setChef(chef);
         buffet.getPiatti().clear();
         buffet.getPiatti().add(primo11);
@@ -205,7 +212,7 @@ public class BuffetController {
         buffet.getPiatti().add(dolce11);
         buffet.getPiatti().add(dolce12);
 
-
+        log.info(buffet.getPiatti().toString());
         buffetService.updateBuffet(buffet);
 
         return "redirect:/admin/allBuffet";

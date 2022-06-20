@@ -172,8 +172,9 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-body text-center">
+                <div class="card-body text-center" th:object="$countBuffet">
                     <h5 class="card-title m-b-0">Modifica Buffet Inseriti</h5>
+                    <h5 class="card-title m-b-0" th:text="$countBuffet"></h5>
                 </div>
                 <div class="table-responsive">
                     <table class="table">
@@ -188,7 +189,7 @@
                         </thead>
                         <tbody class="customtable">
                         <tr th:each="buffet : ${buffetList}">
-                            <td><span th:text="${buffet.nome}">Nome</span></td>
+                            <td><span th:text="${buffet.nome}t">Nome</span></td>
                             <td><span th:text="${buffet.chef.nome + ' ' + buffet.chef.cognome}">Chef</span></td>
                             <td><span th:text="${buffet.descrizione}">Descrizione</span></td>
                             <td><span th:text="${buffet.prezzoInt}">Prezzo</span></td>
